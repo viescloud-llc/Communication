@@ -11,5 +11,18 @@
 			"environment": "dev",
 			"dockerImage": "communication"
 		}
+	},
+	{
+		"configId": 2,
+		"configName": "k8s",
+		"path": "/vincent-services/v-eco",
+		"jobName": "Communication-dev-k8s",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Communication",
+			"displayName": "Communication Dev k8s",
+			"triggerAfterJobName": "Communication-dev",
+			"k8sServiceFolderName": "communication",
+			"environment": "dev"
+		}
 	}
 ]
