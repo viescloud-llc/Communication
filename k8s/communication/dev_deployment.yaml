@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: communication-dev-deployment
+  namespace: communication-dev
+  labels:
+    app: communication-dev
+spec:
+  selector:
+    matchLabels:
+      app: communication-dev
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: communication-dev
+    spec:
+      containers:
+      - name: communication-dev
+        image: vincentbuiwork/communication:dev
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: 500M
+          limits:
+            memory: 1Gi
+        livenessProbe:
+          tcpSocket:
+            port: 83
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /_status/healthz
+            port: 83
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          successThreshold: 1
+          failureThreshold: 3
+          periodSeconds: 10
+        ports:
+        - containerPort: 83
+      restartPolicy: Always
