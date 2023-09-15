@@ -1,0 +1,15 @@
+[
+	{
+		"configId": 1,
+		"configName": "java with git hook",
+		"path": "/vincent-services/v-eco",
+		"jobName": "Communication-dev",
+		"replaceMap": {
+			"projectUrl": "https://github.com/vincent-inc/Communication",
+			"displayName": "Communication Dev",
+			"upperCaseServiceName": "COMMUNICATION-DEV",
+			"environment": "dev",
+			"dockerImage": "communication"
+		}
+	}
+]
