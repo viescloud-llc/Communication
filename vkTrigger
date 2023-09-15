@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('Calling venkins service') {
             steps {
-                sh 'cat vk.json'
                 withCredentials([string(credentialsId: 'venkins-url', variable: 'venkinsUrl')]) {
-                    echo "${venkinsUrl}"
+                    sh "curl -X PUT ${venkinsUrl} -d vk.json"
                 }
             }
         }
