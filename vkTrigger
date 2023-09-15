@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
+        stage('Calling venkins service') {
             steps {
                 sh 'cat vk.json'
+                withCredentials([string(credentialsId: 'venkins-url', variable: 'venkinsUrl')]) {
+                    echo ${venkinsUrl}
+                }
             }
         }
     }
