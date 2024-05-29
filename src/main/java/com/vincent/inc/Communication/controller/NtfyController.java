@@ -3,6 +3,7 @@ package com.vincent.inc.Communication.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vincent.inc.Communication.model.NtfyAction;
 import com.vincent.inc.Communication.model.NtfyPackage;
 import com.vincent.inc.Communication.model.NtfyPriorityEnum;
 import com.vincent.inc.Communication.model.NtfyTagEnum;
@@ -27,6 +28,7 @@ public class NtfyController {
         @RequestHeader(required = false) String title,
         @RequestHeader(required = false) List<NtfyTagEnum> tags,
         @RequestHeader(required = false) NtfyPriorityEnum priority,
+        @RequestHeader(required = false) List<NtfyAction> actions,
         @RequestHeader(required = false) String click,
         @RequestHeader(required = false) String attach,
         @RequestHeader(required = false) boolean markdown,
@@ -41,6 +43,7 @@ public class NtfyController {
             .title(title)
             .tags(tags)
             .priority(priority)
+            .actions(actions)
             .click(click)
             .attach(attach)
             .markdown(markdown)

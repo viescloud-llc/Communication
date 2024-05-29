@@ -35,6 +35,9 @@ public class NtfyPackage {
     
     /** Description: Message priority with 1=min, 3=default and 5=max */
     private NtfyPriorityEnum priority;
+
+    /** Description: List of actions */
+    private List<NtfyAction> actions;
     
     /** Description: Website opened when notification is clicked */
     private String click;

@@ -1,5 +1,7 @@
 package com.vincent.inc.Communication.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class NtfyAction {
-    protected NtfyActionEnum action;
-    protected String label;
+    /** Action type */
+    private NtfyActionEnum action = NtfyActionEnum.VIEW;
+
+    /** Label of the action button in the notification */
+    private String label;
+
+    /** Clear notification after action button is tapped */
+    private boolean clear;
 }
