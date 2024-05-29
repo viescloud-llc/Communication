@@ -1,8 +1,16 @@
 package com.vincent.inc.Communication.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * @author Vincent Bui
+ * @since 2021-11-16
+ * @version 1.0
+ * @see https://docs.ntfy.sh/emojis/
+ */
 @Getter
 @AllArgsConstructor
 public enum NtfyTagEnum {
@@ -1820,4 +1828,9 @@ public enum NtfyTagEnum {
     WALES("wales");
 
     private final String tag;
+
+    @JsonValue
+    public String getValue() {
+        return this.tag;
+    }
 }

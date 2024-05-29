@@ -1,5 +1,7 @@
 package com.vincent.inc.Communication.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,4 +13,9 @@ public enum NtfyActionEnum {
     HTTP("http");
 
     private final String action;
+
+    @JsonValue
+    public String getValue() {
+        return this.action;
+    }
 }

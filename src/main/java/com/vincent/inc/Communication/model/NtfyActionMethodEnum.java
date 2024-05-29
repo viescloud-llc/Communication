@@ -1,5 +1,7 @@
 package com.vincent.inc.Communication.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,4 +14,9 @@ public enum NtfyActionMethodEnum {
     DELETE("DELETE");
 
     private final String method;
+
+    @JsonValue
+    public String getValue() {
+        return this.method;
+    }
 }

@@ -1,5 +1,7 @@
 package com.vincent.inc.Communication.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,4 +15,9 @@ public enum NtfyPriorityEnum {
     MAX_PRIORITY(5);
 
     private final int priority;
+
+    @JsonValue
+    public int getValue() {
+        return this.priority;
+    }
 }

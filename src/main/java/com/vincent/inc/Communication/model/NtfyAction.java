@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class NtfyAction {
     /** Action type */
-    private NtfyActionEnum action = NtfyActionEnum.VIEW;
+    private NtfyActionEnum action;
 
     /** Label of the action button in the notification */
     private String label;
