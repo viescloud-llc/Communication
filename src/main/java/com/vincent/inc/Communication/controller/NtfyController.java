@@ -3,10 +3,10 @@ package com.vincent.inc.Communication.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vincent.inc.Communication.model.NtfyAction;
-import com.vincent.inc.Communication.model.NtfyPackage;
-import com.vincent.inc.Communication.model.NtfyPriorityEnum;
-import com.vincent.inc.Communication.model.NtfyTagEnum;
+import com.vincent.inc.Communication.model.ntfy.NtfyAction;
+import com.vincent.inc.Communication.model.ntfy.NtfyPackage;
+import com.vincent.inc.Communication.model.ntfy.NtfyPriorityEnum;
+import com.vincent.inc.Communication.model.ntfy.NtfyTagEnum;
 import com.vincent.inc.Communication.service.NtfyService;
 
 import java.util.List;

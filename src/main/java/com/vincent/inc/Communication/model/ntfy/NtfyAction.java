@@ -1,4 +1,4 @@
-package com.vincent.inc.Communication.model;
+package com.vincent.inc.Communication.model.ntfy;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

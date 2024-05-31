@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.vincent.inc.Communication.feign.NtfyClient;
-import com.vincent.inc.Communication.model.NtfyPackage;
-import com.vincent.inc.Communication.model.NtfyResponse;
+import com.vincent.inc.Communication.model.ntfy.NtfyPackage;
+import com.vincent.inc.Communication.model.ntfy.NtfyResponse;
 
 @Service
 public class NtfyService {
