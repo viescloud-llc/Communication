@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vincent.inc.Communication.model.ntfy.NtfyAction;
 import com.vincent.inc.Communication.model.ntfy.NtfyPackage;
 import com.vincent.inc.Communication.model.ntfy.NtfyPriorityEnum;
+import com.vincent.inc.Communication.model.ntfy.NtfyResponse;
 import com.vincent.inc.Communication.model.ntfy.NtfyTagEnum;
 import com.vincent.inc.Communication.service.NtfyService;
 
@@ -27,7 +28,7 @@ public class NtfyController {
     private NtfyService ntfyService;
     
     @GetMapping("publish/{topic}")
-    public NtfyPackage publish(
+    public NtfyResponse publish(
         @PathVariable(value = "topic") String topic,
         @RequestHeader(required = false) String title,
         @RequestHeader(required = false) NtfyPriorityEnum priority,
@@ -62,7 +63,7 @@ public class NtfyController {
     }
 
     @PostMapping("publish")
-    public NtfyPackage publish(@RequestBody NtfyPackage ntfyPackage) {
+    public NtfyResponse publish(@RequestBody NtfyPackage ntfyPackage) {
         return this.ntfyService.publish(ntfyPackage);
     }
     
