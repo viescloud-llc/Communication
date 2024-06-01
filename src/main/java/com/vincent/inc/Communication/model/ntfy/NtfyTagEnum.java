@@ -1,6 +1,11 @@
 package com.vincent.inc.Communication.model.ntfy;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import static com.vincent.inc.viesspringutils.util.Enums.mapBy;
+
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -1828,6 +1833,17 @@ public enum NtfyTagEnum {
     WALES("wales");
 
     private final String tag;
+
+    private static final Map<String, NtfyTagEnum> matcherMap = mapBy(values(), it -> it.getTag().toUpperCase());
+    private static final Map<String, NtfyTagEnum> nameMap = mapBy(values(), it -> it.name().toUpperCase());
+
+
+    @JsonCreator
+    public static NtfyTagEnum fromTag(String tag) {
+        var matcher = matcherMap.get(tag.toUpperCase());
+        var name = nameMap.get(tag.toUpperCase());
+        return matcher != null ? matcher : name != null ? name : null;
+    }
 
     @JsonValue
     public String getValue() {

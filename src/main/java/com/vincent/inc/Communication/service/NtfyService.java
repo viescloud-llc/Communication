@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.vincent.inc.Communication.feign.NtfyClient;
 import com.vincent.inc.Communication.model.ntfy.NtfyPackage;
-import com.vincent.inc.Communication.model.ntfy.NtfyResponse;
 
 @Service
 public class NtfyService {
@@ -16,7 +15,7 @@ public class NtfyService {
     @Autowired
     private NtfyClient ntfyClient;
 
-    public NtfyResponse publish(NtfyPackage ntfyPackage) {
+    public Object publish(NtfyPackage ntfyPackage) {
         var token = Base64.getEncoder().encodeToString((":" + ntfyToken).getBytes());
         return ntfyClient.publish(String .format("Basic %s", token), ntfyPackage);
     }
