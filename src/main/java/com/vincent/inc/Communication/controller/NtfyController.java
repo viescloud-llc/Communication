@@ -7,7 +7,10 @@ import com.vincent.inc.Communication.model.ntfy.NtfyAction;
 import com.vincent.inc.Communication.model.ntfy.NtfyPackage;
 import com.vincent.inc.Communication.model.ntfy.NtfyPriorityEnum;
 import com.vincent.inc.Communication.model.ntfy.NtfyTagEnum;
+import com.vincent.inc.Communication.model.ntfy.NtfyTopic;
 import com.vincent.inc.Communication.service.NtfyService;
+import com.vincent.inc.Communication.service.NtfyTopicService;
+import com.vincent.inc.viesspringutils.model.GenericPropertyMatcherEnum;
 
 import java.util.List;
 
@@ -25,6 +28,9 @@ public class NtfyController {
 
     @Autowired
     private NtfyService ntfyService;
+
+    @Autowired
+    private NtfyTopicService ntfyTopicService;
     
     @GetMapping("publish/{topic}")
     public Object publish(
@@ -57,12 +63,13 @@ public class NtfyController {
             .delay(delay)
             .email(email)
             .build();
-
+        this.ntfyTopicService.getOrPostIfMatchAny(new NtfyTopic(0, topic), GenericPropertyMatcherEnum.CASE_SENSITIVE);
         return this.ntfyService.publish(ntfyPackage);
     }
 
     @PostMapping(value = "/publish", consumes = "application/json", produces = "application/json")
     public Object publish(@RequestBody NtfyPackage ntfyPackage) {
+        this.ntfyTopicService.getOrPostIfMatchAny(new NtfyTopic(0, ntfyPackage.getTopic()), GenericPropertyMatcherEnum.CASE_SENSITIVE);
         return this.ntfyService.publish(ntfyPackage);
     }
     
