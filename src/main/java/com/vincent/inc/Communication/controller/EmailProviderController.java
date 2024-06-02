@@ -8,7 +8,7 @@ import com.vincent.inc.Communication.service.EmailProviderService;
 import com.vincent.inc.viesspringutils.controller.ViesControllerWithUser;
 
 @RestController
-@RequestMapping("/email-providers")
+@RequestMapping("/email/providers")
 public class EmailProviderController extends ViesControllerWithUser<EmailProvider, Integer, EmailProviderService> {
 
     public EmailProviderController(EmailProviderService service) {

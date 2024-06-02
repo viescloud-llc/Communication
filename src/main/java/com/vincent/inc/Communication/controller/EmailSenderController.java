@@ -17,7 +17,7 @@ import com.vincent.inc.Communication.service.EmailProviderService;
 import com.vincent.inc.Communication.service.EmailService;
 
 @RestController
-@RequestMapping("/email-senders")
+@RequestMapping("/email/senders")
 public class EmailSenderController {
     @Autowired
     private EmailProviderService emailProviderService;
