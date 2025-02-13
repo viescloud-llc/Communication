@@ -2,21 +2,21 @@ package com.vincent.inc.Communication.service;
 
 import org.springframework.stereotype.Service;
 
+import com.viescloud.llc.viesspringutils.repository.DatabaseCall;
+import com.viescloud.llc.viesspringutils.service.ViesServiceWithUserAccess;
 import com.vincent.inc.Communication.dao.EmailProviderDao;
 import com.vincent.inc.Communication.model.email.EmailProvider;
-import com.vincent.inc.viesspringutils.service.ViesServiceWithUser;
-import com.vincent.inc.viesspringutils.util.DatabaseCall;
 
 @Service
-public class EmailProviderService extends ViesServiceWithUser<EmailProvider, Integer, EmailProviderDao> {
+public class EmailProviderService extends ViesServiceWithUserAccess<Integer, EmailProvider, EmailProviderDao> {
 
-    public EmailProviderService(DatabaseCall<EmailProvider, Integer> databaseCall, EmailProviderDao repositoryDao) {
+    public EmailProviderService(DatabaseCall<Integer, EmailProvider> databaseCall, EmailProviderDao repositoryDao) {
         super(databaseCall, repositoryDao);
     }
 
     @Override
-    protected EmailProvider newEmptyObject() {
-        return new EmailProvider();
+    public Integer getIdFieldValue(EmailProvider object) {
+        return object.getId();
     }
     
 }

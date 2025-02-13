@@ -44,7 +44,7 @@ public class EmailSenderController {
         @PathVariable("providerId") int providerId, 
         @RequestParam(required = false) boolean async,
         @RequestBody SimpleMailMessage message,
-        @RequestHeader(value = "user_id") int userId
+        @RequestHeader(value = "user_id", required = false, defaultValue = "0") String userId
         ) {
         var provider = this.emailProviderService.getById(providerId);
         this.emailProviderService.checkIsRelatedToUser(provider, userId);

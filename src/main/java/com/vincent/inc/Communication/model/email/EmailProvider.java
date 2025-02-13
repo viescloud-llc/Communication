@@ -1,6 +1,6 @@
 package com.vincent.inc.Communication.model.email;
 
-import com.vincent.inc.viesspringutils.model.UserModel;
+import com.viescloud.llc.viesspringutils.model.UserAccess;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EmailProvider extends UserModel {
+public class EmailProvider extends UserAccess {
     
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)

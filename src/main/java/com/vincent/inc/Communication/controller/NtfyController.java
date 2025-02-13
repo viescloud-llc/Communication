@@ -10,7 +10,7 @@ import com.vincent.inc.Communication.model.ntfy.NtfyTagEnum;
 import com.vincent.inc.Communication.model.ntfy.NtfyTopic;
 import com.vincent.inc.Communication.service.NtfyService;
 import com.vincent.inc.Communication.service.NtfyTopicService;
-import com.vincent.inc.viesspringutils.model.GenericPropertyMatcherEnum;
+import com.viescloud.llc.viesspringutils.model.GenericPropertyMatcherEnum;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.vincent.inc.Communication.model.ntfy;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import static com.vincent.inc.viesspringutils.util.Enums.mapBy;
+import static com.viescloud.llc.viesspringutils.util.Enums.mapBy;
 
 import java.util.Map;
 

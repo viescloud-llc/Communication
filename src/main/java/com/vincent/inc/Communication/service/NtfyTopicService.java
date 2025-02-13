@@ -2,18 +2,18 @@ package com.vincent.inc.Communication.service;
 
 import com.vincent.inc.Communication.dao.NtfyTopicDao;
 import com.vincent.inc.Communication.model.ntfy.NtfyTopic;
-import com.vincent.inc.viesspringutils.service.ViesService;
-import com.vincent.inc.viesspringutils.util.DatabaseCall;
+import com.viescloud.llc.viesspringutils.repository.DatabaseCall;
+import com.viescloud.llc.viesspringutils.service.ViesService;
 
-public class NtfyTopicService extends ViesService<NtfyTopic, Integer, NtfyTopicDao> {
+public class NtfyTopicService extends ViesService<Integer, NtfyTopic, NtfyTopicDao> {
 
-    public NtfyTopicService(DatabaseCall<NtfyTopic, Integer> databaseCall, NtfyTopicDao repositoryDao) {
+    public NtfyTopicService(DatabaseCall<Integer, NtfyTopic> databaseCall, NtfyTopicDao repositoryDao) {
         super(databaseCall, repositoryDao);
     }
 
     @Override
-    protected NtfyTopic newEmptyObject() {
-        return new NtfyTopic();
+    public Integer getIdFieldValue(NtfyTopic object) {
+        return object.getId();
     }
     
 }
