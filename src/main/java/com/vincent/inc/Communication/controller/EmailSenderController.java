@@ -1,6 +1,7 @@
 package com.vincent.inc.Communication.controller;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -30,7 +31,7 @@ public class EmailSenderController {
         @RequestParam(required = false) boolean async,
         @RequestBody Email email
         ) {
-        if (async) {
+        if (Optional.ofNullable(async).orElse(false)) {
             emailService.sendEmailAsync(email);
         } else {
             emailService.sendEmail(email);
@@ -49,7 +50,7 @@ public class EmailSenderController {
         var provider = this.emailProviderService.getById(providerId);
         this.emailProviderService.checkIsRelatedToUser(provider, userId);
 
-        if (async) {
+        if (Optional.ofNullable(async).orElse(false)) {
             emailService.sendEmailAsync(provider, message);
         } else {
             emailService.sendEmail(provider, message);
