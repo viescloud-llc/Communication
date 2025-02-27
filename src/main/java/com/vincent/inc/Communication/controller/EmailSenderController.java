@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vincent.inc.Communication.model.email.Email;
+import com.vincent.inc.Communication.model.email.EmailMessage;
 import com.vincent.inc.Communication.service.EmailProviderService;
 import com.vincent.inc.Communication.service.EmailService;
 
@@ -44,7 +44,7 @@ public class EmailSenderController {
     public Map<String, String> sendEmail(
         @PathVariable("providerId") int providerId, 
         @RequestParam(required = false) boolean async,
-        @RequestBody SimpleMailMessage message,
+        @RequestBody EmailMessage message,
         @RequestHeader(value = "user_id", required = false, defaultValue = "0") String userId
         ) {
         var provider = this.emailProviderService.getById(providerId);
