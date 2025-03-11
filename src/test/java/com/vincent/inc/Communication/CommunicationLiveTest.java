@@ -53,7 +53,7 @@ public class CommunicationLiveTest {
         simpleMailMessage.setFrom("no-reply <vincentbuiwork@gmail.com>");
         simpleMailMessage.setTo(List.of("vincentbuijunk@gmail.com"));
         simpleMailMessage.setSubject("Test from spring boot");
-        simpleMailMessage.setText("Test from spring boot");
+        simpleMailMessage.setText("<h1>HTML that is</h1>");
 
         Email email = new Email(emailProvider, simpleMailMessage);
         var json = Json.toJson(email);
@@ -61,6 +61,7 @@ public class CommunicationLiveTest {
 
         var response = WebCall.of(restTemplate, String.class)
                               .request(HttpMethod.POST, String.format("%s%s", url, "/email/senders"))
+                              .queryParam("html", "true")
                               .header("content-type", "application/json")
                               .logRequest()
                               .body(email)
